@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs';
 
 try{
-    let data = readFileSync('day1/input.txt','utf8')
+    let data = readFileSync('day01/input.txt','utf8')
     let arr = data.split('\r\n\r\n')
     console.log(arr)
 

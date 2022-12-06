@@ -1,6 +1,6 @@
 import { readFileSync } from 'fs';
 const alpha = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-let data = readFileSync('day4/input.txt', 'utf8').split('\r\n')
+let data = readFileSync('day04/input.txt', 'utf8').split('\r\n')
 
 console.log(data)
 let res1 = solve1(data)

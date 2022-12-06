@@ -71,7 +71,7 @@ function fixGame(npc,player){
     return hand
 }
 try{
-    let data = readFileSync('day2/input.txt','utf8')
+    let data = readFileSync('day02/input.txt','utf8')
     let arr = data.split('\r\n')
  
 

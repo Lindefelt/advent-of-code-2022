@@ -1,6 +1,6 @@
 import { readFileSync } from 'fs';
 
-const input = readFileSync('day5/input.txt', 'utf8').split('\r\n')
+const input = readFileSync('day05/input.txt', 'utf8').split('\r\n')
 
 const instructionPattern = /move (\d*) from (\d*) to (\d*)/
 
