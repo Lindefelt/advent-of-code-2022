@@ -49,8 +49,63 @@ function solve1(matrix){
     return res
  }
  
- function solve2(dirs){
-    let res =  0
+ function solve2(matrix){
+    const rows = matrix.length
+    const cols = matrix[0].length
+    let scores = Array(rows).fill(null).map(() => Array(cols).fill(0))
+
+     for (let r = 0; r < rows; r++) {
+         for (let c = 0; c < cols; c++) {
+            //to the right
+            let tree = matrix[r][c]
+            let treesToTheRight = matrix[r].length-1-c
+            let treesBelow = matrix[r].length-1-r
+            let vdRight = 0
+            let vdDown = 0
+            let vdLeft = 0
+            let vdUp = 0
+            // Right
+            for (let v = c; v < c+treesToTheRight; v++) {
+                if(tree > matrix[r][v+1]){
+                    vdRight++
+                }else if(tree <= matrix[r][v+1]){
+                    vdRight++
+                    break
+                }
+            }
+            // Down
+            for (let v = r; v < r+treesBelow; v++) {
+                if(tree > matrix[v+1][c]){
+                    vdDown++
+                }else if(tree <= matrix[v+1][c]){
+                    vdDown++
+                    break
+                }
+            }
+            // Left
+            for (let v = c; v > 0; v--) {
+                if(tree > matrix[r][v-1]){
+                    vdLeft++
+                }else if(tree <= matrix[r][v-1]){
+                    vdLeft++
+                    break
+                }
+            }
+            // Up
+            for (let v = r; v > 0; v--) {
+                if(tree > matrix[v-1][c]){
+                    vdUp++
+                }else if(tree <= matrix[v-1][c]){
+                    vdUp++
+                    break
+                }
+            }
+            scores [r][c] = vdRight*vdDown*vdLeft*vdUp
+        }
+       
+        
+    }
+    let res = scores.flatMap(e=>e).reduce((acc,curr)=>{ return (curr > acc ? curr: acc)})
     return res
  }
 
